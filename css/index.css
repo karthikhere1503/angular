@@ -1,0 +1,23 @@
+span.ng-binding {
+    color: red;
+}
+#report {
+    margin-top: 50px;
+    width: 300px;
+    
+}
+
+label#report-startdt{
+	position: absolute;
+    margin-top: 140px;
+    left: 0px;
+}
+
+label#report-enddt {
+    position: absolute;
+    margin-top: 160px;
+    left: 0px;
+}
+#backButton {
+    margin-top: 200;
+}

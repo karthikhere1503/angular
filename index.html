@@ -1,0 +1,37 @@
+<html>
+<body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+<script src="script/app.js"></script>
+<link rel="stylesheet" href="css/index.css"></link>
+<link rel="stylesheet" href="css/circle.css"></link>
+<div ng-app="myApp" ng-controller='PlanDataController'>
+    <div id = "inputData" ng-show = "isInputRequired">
+		Name: <input type = "text" id="name" ng-model="name" placeholder="Enter Name"/>
+		Value: <input type="text" type="number" id="graphValue" ng-model="graphValue" min="1" max="100" size="1" maxlength="3" placeholder="Enter Value" required/>
+		<br><br>Start Date: <input type="date" id="startDate" ng-model="startDate" ng-change='validateDt(startDate,endDate)'/>
+		End Date: <input type="date"  id="endDate" ng-model="endDate" ng-change='validateDt(startDate,endDate)'/>
+		<span>{{notify}}</span>
+		<br>
+		<br>
+		<button ng-model = "reportbutton"  ng-disabled = "isreport" ng-click="genReport()">Report</button>
+	</div>
+	<div id="report" ng-show="isDisplay">
+		<label id="report-name">Name: {{name}}</label>
+		<div id="report-value">
+			<div class="clearfix">
+                <div id = "graphChart"class="c100 p{{graphValue}} big orange">
+                    <span>{{graphValue}}%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<label id="report-startdt">Start Date: {{report_startdt | date:'dd-M-yyyy'}}</label>
+		<label id="report-enddt">End Date: {{report_enddt |date:'dd-M-yyyy'}}</label>
+		<button id="backButton" ng-model = "backButton"  ng-disabled = "isBackButton" ng-click="dispInputData()">Back</button>
+	</div>
+</div>
+</body>
+</html>
